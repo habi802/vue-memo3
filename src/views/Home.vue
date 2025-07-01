@@ -19,7 +19,7 @@
 
 <template>
   <div class="memo-list">
-    <router-link class="add btn btn-light">
+    <router-link to="/add" class="add btn btn-light">
       등록하기
     </router-link>
 
