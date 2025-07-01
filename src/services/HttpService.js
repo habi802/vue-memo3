@@ -21,6 +21,11 @@ class HttpService {
     const res = await axios.put('/memo', item);
     return res.data;
   }
+
+  async delete(params) {
+    const res = await axios.delete('/memo', { params });
+    return res.data;
+  }
 }
 
 export default new HttpService();

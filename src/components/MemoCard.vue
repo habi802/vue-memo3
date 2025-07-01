@@ -1,6 +1,7 @@
 <script setup>
   const props = defineProps({
     item: Object,
+    deleteItem: Function,
   });
 </script>
 
@@ -11,7 +12,7 @@
         <div class="d-flex justify-content-between">
           <b>{{ props.item.title }}</b>
           <div>
-            <span role="button">삭제</span>
+            <span role="button" @click.prevent="$emit('deleteItem', props.item.memoId)">삭제</span>
           </div>
         </div>
         <div class="mt-2">{{ props.item.createdAt }}</div>
