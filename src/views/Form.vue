@@ -57,7 +57,14 @@
       content: state.memo.content
     };
 
-    data = await httpService.post(bodyJson);
+    if (route.params.memoId) {
+      // 수정
+      bodyJson.memoId = state.memo.memoId;
+      data = await httpService.put(bodyJson);
+    } else {
+      // 등록
+      data = await httpService.post(bodyJson);
+    }
 
     if (data.resultData === 1) {
       router.push({ path: '/' });
@@ -77,7 +84,9 @@
       <label for="content" class="form-label">내용</label>
       <textarea type="text" id="content" ref="ref_content" class="form-control p-3" v-model="state.memo.content"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary w-100 py-3">저장</button>
+    <button type="submit" class="btn btn-primary w-100 py-3">
+      {{ route.params.memoId ? '수정' : '등록' }}
+    </button>
   </form>
 </template>
 

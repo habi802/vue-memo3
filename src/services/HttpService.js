@@ -16,6 +16,11 @@ class HttpService {
     const res = await axios.get(`/memo/${memoId}`);
     return res.data;
   }
+
+  async put(item) {
+    const res = await axios.put('/memo', item);
+    return res.data;
+  }
 }
 
 export default new HttpService();
