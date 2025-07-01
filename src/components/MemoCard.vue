@@ -1,5 +1,7 @@
 <script setup>
-
+  const props = defineProps({
+    item: Object,
+  });
 </script>
 
 <template>
@@ -7,12 +9,12 @@
     <div class="d-flex pt-3">
       <div class="pb-3 mb-0 w-100">
         <div class="d-flex justify-content-between">
-          <b>제목</b>
+          <b>{{ props.item.title }}</b>
           <div>
             <span role="button">삭제</span>
           </div>
         </div>
-        <div class="mt-2">날짜</div>
+        <div class="mt-2">{{ props.item.createdAt }}</div>
       </div>
     </div>
   </router-link>

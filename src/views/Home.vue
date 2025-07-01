@@ -1,5 +1,20 @@
 <script setup>
+  import { reactive, onMounted } from 'vue';
+  import httpService from '@/services/HttpService';
   import MemoCard from '@/components/MemoCard.vue';
+
+  const state = reactive({
+    memos: []
+  });
+
+  onMounted(() => {
+    getMemos();
+  });
+
+  const getMemos = async () => {
+    const data = await httpService.get();
+    state.memos = data.resultData;
+  };
 </script>
 
 <template>
@@ -8,9 +23,7 @@
       등록하기
     </router-link>
 
-    <MemoCard />
-    <MemoCard />
-    <MemoCard />
+    <MemoCard v-for="m in state.memos" :item="m" :key="m.id" />
   </div>
 </template>
 
