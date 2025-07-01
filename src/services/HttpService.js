@@ -11,6 +11,11 @@ class HttpService {
     const res = await axios.get('/memo');
     return res.data;
   }
+
+  async getById(memoId) {
+    const res = await axios.get(`/memo/${memoId}`);
+    return res.data;
+  }
 }
 
 export default new HttpService();

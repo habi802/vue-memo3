@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <router-link class="item">
+  <router-link :to="`/${props.item.memoId}`" class="item">
     <div class="d-flex pt-3">
       <div class="pb-3 mb-0 w-100">
         <div class="d-flex justify-content-between">

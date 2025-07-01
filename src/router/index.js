@@ -15,6 +15,11 @@ const router = createRouter({
       name: 'Form',
       component: Form,
     },
+    {
+      path: '/:memoId',
+      name: 'Detail',
+      component: Form,
+    },
   ],
 })
 

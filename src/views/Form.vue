@@ -1,8 +1,9 @@
 <script setup>
-  import { reactive, useTemplateRef } from 'vue';
+  import { reactive, onMounted, useTemplateRef } from 'vue';
   import httpService from '@/services/HttpService';
-  import { useRouter } from 'vue-router';
+  import { useRoute, useRouter } from 'vue-router';
 
+  const route = useRoute();
   const router = useRouter();
 
   const state = reactive({
@@ -13,6 +14,17 @@
       createdAt: '',
     }
   });
+
+  onMounted(() => {
+    if (route.params.memoId) {
+      getById();
+    }
+  });
+
+  const getById = async () => {
+    const data = await httpService.getById(route.params.memoId);
+    state.memo = data.resultData;
+  };
 
   const refTitle = useTemplateRef('ref_title');
   const refContent = useTemplateRef('ref_content');
