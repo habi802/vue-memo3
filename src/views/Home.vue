@@ -47,6 +47,9 @@
       isMemoEnd.value = false;
     }
 
+    previousOption.value = searchOption.value;
+    previousText.value = searchText.value;
+
     searchParams = {
       search_option: searchOption.value,
       search_text: searchText.value,
