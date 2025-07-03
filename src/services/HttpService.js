@@ -7,8 +7,8 @@ class HttpService {
     return res.data;
   }
   
-  async get() {
-    const res = await axios.get('/memo');
+  async get(params) {
+    const res = await axios.get('/memo', { params });
     return res.data;
   }
 
