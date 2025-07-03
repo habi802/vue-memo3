@@ -40,6 +40,7 @@
 
   // 검색
   const search = () => {
+    // 이전의 검색 옵션이나 검색어와 다를 경우, 다시 글 목록을 처음 5개부터 화면에 보여줌
     if (searchOption.value !== previousOption.value || searchText.value !== previousText.value) {
       lastIdx = 0;
       memos.value = [];
@@ -75,9 +76,9 @@
     const data = await httpService.delete(params);
 
     if (data.resultData === 1) {
-      const deleteIdx = memos.findIndex(item => item.memoId === memoId);
+      const deleteIdx = memos.value.findIndex(item => item.memoId === memoId);
       if (deleteIdx >= 0) {
-        state.memos.splice(deleteIdx, 1);
+        memos.value.splice(deleteIdx, 1);
       }
     }
   }
