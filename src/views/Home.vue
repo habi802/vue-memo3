@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, onMounted, watch } from 'vue';
+  import { ref, onMounted } from 'vue';
   import httpService from '@/services/HttpService';
   import MemoCard from '@/components/MemoCard.vue';
 
